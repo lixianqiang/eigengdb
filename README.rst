@@ -68,6 +68,19 @@ From Source
    python setup.py install # Make sure to use system python which matches GDB
    python bin/eigengdb_register_printers
 
+If you want to format the output, you can add the following content to .gdbinit where /home/$USER
+
+.. code-block:: bash
+
+   python
+   __import__('eigengdb').register_eigen_printers(None)
+   import numpy as np
+   np.set_printoptions(linewidth=200, formatter={'float': lambda x: "{:5.2f}".format(x)})
+   end
+
+
+
+
 Test
 ----
 
