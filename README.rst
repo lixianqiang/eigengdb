@@ -65,8 +65,8 @@ From Source
 
    git clone https://github.com/dmillard/eigengdb
    cd eigengdb
-   python setup.py install # Make sure to use system python which matches GDB
-   python bin/eigengdb_register_printers
+   python3 setup.py install --user # Make sure to use system python which matches GDB
+   python3 bin/eigengdb_register_printers
 
 Test
 ----
@@ -110,7 +110,7 @@ Since NumPy is used to render the matrix, you can adjust `NumPy's printing optio
    
    (gdb) python
    >import numpy as np
-   >np.set_printoptions(linewidth=200, formatter={'float': lambda x: "{:5.2f}".format(x) if x !=0 else "     "})
+   >np.set_printoptions(linewidth=200, formatter={'float': lambda x: "{:5.2f}".format(x)})
    >end
    (gdb) p lin_invar_pref
    $12 = Eigen::Matrix<double,4,12,ColMajor> (data ptr: 0x613000001380)
